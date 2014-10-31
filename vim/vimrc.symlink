@@ -357,3 +357,8 @@ set completeopt=menu,menuone,longest
 
 let g:checksyntax#debug=1
 let g:checksyntax#auto_mode=1
+
+
+" Set directory for swap file.
+set directory=~/.vim/tmp
+
