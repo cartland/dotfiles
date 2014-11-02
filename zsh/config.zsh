@@ -7,7 +7,7 @@ fi
 # export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
 export EDITOR="vim"
-export PAGER=most
+export PAGER=less
 
 fpath=($ZSH/functions $fpath)
 
