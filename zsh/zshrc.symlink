@@ -76,3 +76,6 @@ unfunction zkbd_file; unset keyfile ret
 
 
 export PATH=$PATH:$HOME/googlebin
+
+export PATH=$PATH:$HOME/gcloudbin
+
