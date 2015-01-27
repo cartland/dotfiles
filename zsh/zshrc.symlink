@@ -80,4 +80,5 @@ export PATH=$PATH:$HOME/googlebin
 export PATH=$PATH:$HOME/gcloudbin
 
 export PATH=$PATH:$HOME/golangbin
+export GOROOT=$HOME/goroot
 
