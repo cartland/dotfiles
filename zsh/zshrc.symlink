@@ -74,8 +74,6 @@ unfunction zkbd_file; unset keyfile ret
 [[ -n "${key[Left]}"    ]]  && bindkey  "${key[Left]}"    backward-char
 [[ -n "${key[Right]}"   ]]  && bindkey  "${key[Right]}"   forward-char
 
-launchctl setenv STUDIO_JDK /Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk
-
 # Directory for Google stuff
 export PATH=$PATH:$HOME/googlebin
 
@@ -91,5 +89,25 @@ export GOPATH=$HOME/gopath
 export APPENGINEPATH=$HOME/appengine/go_appengine
 export PATH=$PATH:$APPENGINEPATH
 
+# Google App Engine
+export PATH=$PATH:$HOME/google_appengine
+
 # http://www.chromium.org/developers/how-tos/install-depot-tools
 export PATH=$HOME/googlesource/chromium/depot_tools:"$PATH"
+
+# Android SDK HOME
+export ANDROID_HOME=$HOME/android-sdk
+
+# Android platform-tools
+export PATH=$PATH:$HOME/android-sdk/platform-tools
+
+# The next line updates PATH for the Google Cloud SDK.
+source "$HOME/google-cloud-sdk/path.zsh.inc"
+
+# The next line enables shell command completion for gcloud.
+source "$HOME/google-cloud-sdk/completion.zsh.inc"
+
+
+# Mac only
+launchctl setenv STUDIO_JDK /Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk
+
