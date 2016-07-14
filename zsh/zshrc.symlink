@@ -123,13 +123,17 @@ export PATH=$PATH:$HOME/android-sdk/platform-tools
 # Node.js
 export PATH=$PATH:$HOME/local/node-v0.10.34/bin
 
-# Set JAVA_HOME
-export JAVA_HOME="$(/usr/libexec/java_home -v 1.7)"
-
 # RVM for Ruby
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 
+
 # Mac only
+echo "Mac commands"
+
+# Android Studio JDK
 launchctl setenv STUDIO_JDK /Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk
+
+# Set JAVA_HOME
+export JAVA_HOME="$(/usr/libexec/java_home -v 1.7)"
 
