@@ -129,7 +129,7 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 
 # Mac only
-echo "Mac commands"
+echo "Loading Mac ZSH commands..."
 
 # Android Studio JDK
 launchctl setenv STUDIO_JDK /Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk
