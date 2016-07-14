@@ -1,3 +1,18 @@
+
+# The next line updates PATH for the Google Cloud SDK.
+source "$HOME/google-cloud-sdk/path.zsh.inc"
+
+# The next lines enables bash completion in Zsh for gcloud.
+autoload -U compinit compdef
+compinit
+
+# The next line updates PATH for the Google Cloud SDK.
+source "$HOME/google-cloud-sdk/path.zsh.inc"
+
+# The next line enables shell command completion for gcloud.
+source "$HOME/google-cloud-sdk/completion.zsh.inc"
+
+
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
 
@@ -92,20 +107,27 @@ export PATH=$PATH:$APPENGINEPATH
 # Google App Engine
 export PATH=$PATH:$HOME/google_appengine
 
+# Android SDK
+export ANDROID_HOME=$HOME/android-sdk
+export PATH=$PATH:$ANDROID_HOME
+
+# Android tools
+export PATH=$PATH:$ANDROID_HOME/tools
+
 # http://www.chromium.org/developers/how-tos/install-depot-tools
 export PATH=$HOME/googlesource/chromium/depot_tools:"$PATH"
-
-# Android SDK HOME
-export ANDROID_HOME=$HOME/android-sdk
 
 # Android platform-tools
 export PATH=$PATH:$HOME/android-sdk/platform-tools
 
-# The next line updates PATH for the Google Cloud SDK.
-source "$HOME/google-cloud-sdk/path.zsh.inc"
+# Node.js
+export PATH=$PATH:$HOME/local/node-v0.10.34/bin
 
-# The next line enables shell command completion for gcloud.
-source "$HOME/google-cloud-sdk/completion.zsh.inc"
+# Set JAVA_HOME
+export JAVA_HOME="$(/usr/libexec/java_home -v 1.7)"
+
+# RVM for Ruby
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 
 # Mac only
