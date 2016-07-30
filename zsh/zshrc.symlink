@@ -1,4 +1,30 @@
 
+if [[ `uname` == 'Linux' ]]
+then
+        export LINUX=1
+        export GNU_USERLAND=1
+else
+        export LINUX=
+fi
+
+if [[ `uname` == 'Darwin' ]]
+then
+        export OSX=1
+else
+        export OSX=
+fi
+
+# Detect Macports GNU userland installation
+if [[ "$OSX" == "1" ]]
+then
+    if [[ -e /opt/local/libexec/gnubin ]]
+    then
+        export GNU_USERLAND=1
+    fi
+fi
+
+
+
 autoload -Uz promptinit
 promptinit
 prompt adam1
@@ -22,7 +48,12 @@ zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=2
-eval "$(dircolors -b)"
+
+if [[ "$LINUX" == 1 ]]
+then
+    eval "$(dircolors -b)"
+fi
+
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
@@ -156,20 +187,22 @@ export PATH=$PATH:$HOME/local/node-v0.10.34/bin
 # RVM for Ruby
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
+# The next line updates PATH for the Google Cloud SDK.
+source "$HOME/google-cloud-sdk/path.zsh.inc"
+
+# The next line enables shell command completion for gcloud.
+source "$HOME/google-cloud-sdk/completion.zsh.inc"
 
 
 # Mac only
-echo "Loading Mac ZSH commands..."
+if [[ "$OSX" == "1" ]]
+then
+    echo "Loading Mac ZSH commands..."
 
-# Android Studio JDK
-launchctl setenv STUDIO_JDK /Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk
+    # Android Studio JDK
+    launchctl setenv STUDIO_JDK /Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk
 
-# Set JAVA_HOME
-export JAVA_HOME="$(/usr/libexec/java_home -v 1.7)"
+    # Set JAVA_HOME
+    export JAVA_HOME="$(/usr/libexec/java_home -v 1.7)"
+fi
 
-
-# The next line updates PATH for the Google Cloud SDK.
-source '/usr/local/google/home/cartland/google-cloud-sdk/path.zsh.inc'
-
-# The next line enables shell command completion for gcloud.
-source '/usr/local/google/home/cartland/google-cloud-sdk/completion.zsh.inc'
